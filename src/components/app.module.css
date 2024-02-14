@@ -1,0 +1,23 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+  color: #212121;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.title {
+  margin: 20px 0;
+  font-size: 48px;
+}
+
+.subtitle {
+  margin: 20px 0;
+  font-size: 36px;
+}
+
