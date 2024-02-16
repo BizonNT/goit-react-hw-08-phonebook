@@ -1,5 +1,14 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root {
+  --text: #313131;
+  --middlegray: #c1c1c1;
+  --lightgray: #e7e9fc;
+  --lightblue: #90d4f8;
+  --darkblue: #303f9f;
+  --dairy: #fcfcfc;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,4 +21,32 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,
+h2,
+h3,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding-left: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }

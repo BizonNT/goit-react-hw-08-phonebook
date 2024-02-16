@@ -1,0 +1,76 @@
+.btn {
+  padding: 5px 15px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  background-color: var( --lightgray);
+  margin: auto;
+  border: 2px solid var(--middlegray);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+}
+@media (max-width: 1139px) {
+  .btn {
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .btn {
+    font-size: 18px;
+  }
+}
+.btn:hover,
+.btn:focus {
+  background-color: var( --dairy);
+  border: 2px solid var(--lightblue);
+  box-shadow: 0px 0px 5px 3px var(--lightblue);
+  text-shadow: var(--lightblue) 1px 2px 5px;
+  outline: none;
+  color: var(--darkblue);
+}
+
+
+
+.btnmenu {
+  padding: 5px 15px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  background-color: var( --lightgray);
+  margin: auto;
+  border: 2px solid var(--middlegray);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+}
+@media (max-width: 1139px) {
+  .btnmenu {
+    font-size: 18px;
+  }
+}
+@media (max-width: 767px) {
+  .btnmenu {
+    font-size: 16px;
+  }
+}
+.btnmenu:hover,
+.btnmenu:focus {
+  background-color: var( --dairy);
+  border: 2px solid var(--lightblue);
+  box-shadow: 0px 0px 5px 3px var(--lightblue);
+  text-shadow: var(--lightblue) 1px 2px 5px;
+  outline: none;
+  color: var(--darkblue);
+}
+.btnmenu:global(.active) {
+   background-color: var( --dairy);
+  border: 2px solid var(--darkblue);
+  box-shadow: 0px 0px 5px 3px var(--darkblue);
+  outline: none;
+  color: var(--darkblue);
+}

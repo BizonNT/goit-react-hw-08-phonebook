@@ -18,6 +18,7 @@ export const addContact = createAsyncThunk(
   'fetch/addContact',
   async (body, thunkAPI) => {
     try {
+      console.log("body",body)
       const data = await contacsApi.requestAddContact(body);
       return data;
     } catch (error) {
@@ -25,7 +26,7 @@ export const addContact = createAsyncThunk(
     }
   },
   {
-    condition: ({ name, phone }, { getState }) => {
+    condition: ({ name, number }, { getState }) => {
       const {
         contacts: { items },
       } = getState();
@@ -33,16 +34,16 @@ export const addContact = createAsyncThunk(
         contact => contact.name.toLowerCase() === name.toLowerCase()
       );
       const arrayNumbers = items.find(
-        contact => contact.phone.toLowerCase() === phone.toLowerCase()
+        contact => contact.number.toLowerCase() === number.toLowerCase()
       );
       if (arrayContacts) {
         alert(
-          `${name} is already in contacts with number ${arrayContacts.phone}`
+          `${name} is already in contacts with number ${arrayContacts.number}`
         );
         return false;
       }
       if (arrayNumbers) {
-        alert(`${phone} is already in the contact ${arrayNumbers.name}`);
+        alert(`Number ${number} is already in the contact ${arrayNumbers.name}`);
         return false;
       }
     },

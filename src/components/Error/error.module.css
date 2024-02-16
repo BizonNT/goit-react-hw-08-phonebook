@@ -1,0 +1,21 @@
+.container {
+  padding: 20px 50px;
+}
+
+.title {
+  margin: 20px 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
+  font-weight: 500;
+}
+.link:hover,
+.link:focus {
+  color: #b70707;
+  font-weight: 700;
+}

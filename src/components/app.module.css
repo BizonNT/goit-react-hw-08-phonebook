@@ -3,21 +3,32 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  gap: 30px;
-  color: #212121;
-  max-width: 600px;
+  align-items: center;
+  color: var(--text);
   margin: 0 auto;
   padding: 0;
+  background-color: var(--lightgray);
+  opacity: 0.99;
 }
-
-.title {
-  margin: 20px 0;
-  font-size: 48px;
+.container::before {
+  content: "PhoneBOOK";
+  position: absolute;
+  width: 100%;
+  top: 60%;
+  text-align: center;
+  z-index: -1;
+  font-size: 164px;
+  font-weight: 900;
+  -webkit-text-fill-color: var(--lightgray);
+  text-shadow: var(--text) 1px 5px 30px;
 }
-
-.subtitle {
-  margin: 20px 0;
-  font-size: 36px;
+@media (max-width: 1139px) {
+  .container::before {
+    font-size: 96px;
+  }
 }
-
+@media (max-width: 767px) {
+  .container::before {
+    font-size: 48px;
+  }
+}
