@@ -3,6 +3,7 @@ import {
   addContact,
   deleteContact,
   fetchContacts,
+  changeContact
 } from './contacts-operations';
 
 import { pending, rejected } from '../../shared/function/redux';
@@ -35,7 +36,15 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.items = [...state.items, payload];
       })
-      .addCase(addContact.rejected, rejected);
+      .addCase(addContact.rejected, rejected)
+      .addCase(changeContact.pending, pending)
+      .addCase(changeContact.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.items = state.items.map(item =>
+          item.id === payload.id ? payload : item
+        );
+      })
+      .addCase(changeContact.rejected, rejected);
   },
 });
 

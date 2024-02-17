@@ -1,7 +1,9 @@
 .container {
   display: flex;
-  gap: 5px;
+  gap: 15px;
   align-content: center;
 }
+
+
 
 

@@ -1,21 +1,20 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/contacts-operations';
+
+import { changeContact } from '../../redux/contacts/contacts-operations';
 import Button from '../Button/Button';
-import Message from '../Message/Message';
 
-import css from './contactform.module.css';
+import css from './change-contact-form.module.css';
 
-export default function ContactForm() {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-  const [success, setSuccess] = useState(false);
+const ChangeContactForm = ({ contact }) => {
+  const [name, setName] = useState(contact[0].name);
+  const [number, setNumber] = useState(contact[0].number);
+  const { id } = contact[0];
 
   const dispatch = useDispatch();
 
   const handleInput = event => {
     const { name, value } = event.currentTarget;
-    setSuccess(false);
     switch (name) {
       case 'name':
         setName(value);
@@ -28,28 +27,16 @@ export default function ContactForm() {
     }
   };
 
-  const handleAddName = event => {
+  const handleChangeName = event => {
     event.preventDefault();
-
-    const data = {
-      name,
-      number,
-    };
-    dispatch(addContact(data));
-    setSuccess(true);
-    reset();
-  };
-
-  const reset = () => {
-    setName('');
-    setNumber('');
+    const data = { id, name, number };
+    dispatch(changeContact(data));
   };
 
   return (
     <div className={css.container}>
-      <h2 className={css.title}>Add Contact</h2>
-      {success && <Message message="Succesfully added" />}
-      <form className={css.info} onSubmit={handleAddName}>
+      <h2 className={css.title}>Change Contact</h2>
+      <form className={css.info} onSubmit={handleChangeName}>
         <label className={css.label}>
           Name
           <input
@@ -72,8 +59,10 @@ export default function ContactForm() {
             onChange={handleInput}
           />
         </label>
-        <Button title="Add contact" type="submit" />
+        <Button title="Change contact" type="submit" />
       </form>
     </div>
   );
-}
+};
+
+export default ChangeContactForm;

@@ -1,4 +1,4 @@
-import ContactForm from "components/ContactForm/ContactForm";
+import ContactForm from 'components/ContactForm/ContactForm';
 
 const AddContactPage = () => {
   return (
@@ -6,6 +6,6 @@ const AddContactPage = () => {
       <ContactForm />
     </>
   );
-}
+};
 
 export default AddContactPage;

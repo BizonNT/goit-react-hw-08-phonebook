@@ -18,7 +18,6 @@ export const addContact = createAsyncThunk(
   'fetch/addContact',
   async (body, thunkAPI) => {
     try {
-      console.log("body",body)
       const data = await contacsApi.requestAddContact(body);
       return data;
     } catch (error) {
@@ -43,7 +42,9 @@ export const addContact = createAsyncThunk(
         return false;
       }
       if (arrayNumbers) {
-        alert(`Number ${number} is already in the contact ${arrayNumbers.name}`);
+        alert(
+          `Number ${number} is already in the contact ${arrayNumbers.name}`
+        );
         return false;
       }
     },
@@ -56,6 +57,20 @@ export const deleteContact = createAsyncThunk(
     try {
       await contacsApi.requestDeleteContact(id);
       return id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const changeContact = createAsyncThunk(
+  'fetch/changeContact',
+  async (contact, thunkAPI) => {
+    try {
+      const { id, name, number } = contact;
+      const body = { name, number };
+      const data = await contacsApi.requestChangeContact(id, body);
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

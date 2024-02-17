@@ -19,7 +19,7 @@ export const login = createAsyncThunk('auth/login', async (body, thunkAPI) => {
     const data = await authRequest.loginRequest(body);
     return data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(error.response.statusText);
   }
 });
 

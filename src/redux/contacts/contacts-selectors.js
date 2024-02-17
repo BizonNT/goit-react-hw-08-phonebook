@@ -11,3 +11,4 @@ export const selectFilteredContacts = store => {
     contact.name.toLowerCase().includes(filterLowerCase)
   );
 };
+

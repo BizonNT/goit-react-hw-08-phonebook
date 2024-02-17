@@ -1,0 +1,17 @@
+.container {
+  position: absolute;
+  display: flex;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.message {
+  font-size: 20px;
+  font-weight: 500;
+  color: green;
+}
+
+.red {
+  composes: message;
+  color: red;
+}

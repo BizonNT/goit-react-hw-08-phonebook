@@ -2,12 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Loader from 'components/Loader/Loader';
+import Message from 'components/Message/Message';
 
 import { login } from '../../redux/auth/auth-operations';
-import {
-  selectError,
-  selectIsLoading,
-} from '../../redux/auth/auth-selectors';
+import { selectError, selectIsLoading } from '../../redux/auth/auth-selectors';
 
 const LoginPage = () => {
   const authLoading = useSelector(selectIsLoading);
@@ -22,8 +20,10 @@ const LoginPage = () => {
   return (
     <>
       {authLoading && <Loader />}
+      {authError && (
+        <Message message={authError} red text=". Please, Try again..." />
+      )}
       {!authLoading && <LoginForm onSubmit={handleSighIn} />}
-      {authError && <div>{authError} </div>}
     </>
   );
 };
