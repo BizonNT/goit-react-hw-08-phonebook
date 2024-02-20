@@ -14,6 +14,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    resetError: state => {
+      state.error = null;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(signup.pending, pending)
@@ -38,9 +43,11 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.isLogin = false;
         state.user = {};
-        state.token = "";
+        state.token = '';
       })
       .addCase(logout.rejected, rejected),
 });
+
+export const { resetError } = authSlice.actions;
 
 export default authSlice.reducer;
